@@ -1,0 +1,10 @@
+{
+  "output_directory": "/home/ubuntu/mols_src/results/",
+  "molecule_name": "ALA",
+  "sequence": "AAAAA",
+  "cycles": 10,
+  "backbone_option": 2,
+  "structure_option": 4,
+  "force_field": 1,
+  "clustering_algorithm": 1
+}

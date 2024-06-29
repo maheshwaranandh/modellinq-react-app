@@ -1,0 +1,23 @@
+REMARK  SEQUENCE LENGTH            =     5
+REMARK  GLOBAL RRMSD CUTOFF        =  0.24
+REMARK  TOTAL STRUCTURES           =    10
+REMARK  NUMBER OF CLUSTERS         =     2
+      REMARK  CN  NM  Energy    PACKD   CUTOF   RMSD    RRMSD     CRMS    CRRMS
+REMARK   1   2  -14.44    0.43    0.11    0.29    0.07    4.39    1.77    0.49
+REMARK   2   4  -12.77    0.58    0.06    0.15    0.03    4.63    0.28    0.05
+MODEL       1       -14.44
+ATOM      1  CA  ALA     1       1.460  -0.014  -0.029                         
+ATOM      2  CA  ALA     2       2.871   1.911   0.956                         
+ATOM      3  CA  ALA     3       2.440  -0.336   0.695                         
+ATOM      4  CA  ALA     4       0.764  -3.086  -1.129                         
+ATOM      5  CA  ALA     5       0.551  -3.391  -1.958                         
+TER
+ENDMDL
+MODEL       2       -12.77
+ATOM      1  CA  ALA     1       1.460  -0.014  -0.029                         
+ATOM      2  CA  ALA     2       2.549   1.126  -3.055                         
+ATOM      3  CA  ALA     3       6.167  -0.081  -2.778                         
+ATOM      4  CA  ALA     4       7.178   0.586  -5.974                         
+ATOM      5  CA  ALA     5      10.924   0.139  -5.207                         
+TER
+ENDMDL

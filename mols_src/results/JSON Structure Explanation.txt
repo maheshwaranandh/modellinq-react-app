@@ -1,0 +1,47 @@
+JSON Structure Explanation
+
+output_directory: The directory where the output files will be saved.
+Type: string
+Example: "/home/ubuntu/mols_src/results/"
+
+molecule_name: The name or tag of the molecule.
+Type: string
+Example: "ALA"
+
+sequence: The sequence of the molecule.
+Type: string
+Example: "AAAAA"
+
+cycles: The number of cycles to run.
+Type: integer
+Example: 10
+
+backbone_option: Option for backbone configurations.
+Type: integer
+Options:
+1: Backbone
+2: Backbone + Side Chain
+3: Other (if applicable)
+Example: 2
+
+structure_option: Option for the structure generator.
+Type: integer
+Options:
+1: Structure Generator
+2: Sample Structure
+3: Optimal Structures
+4: Clustering
+Example: 4
+
+force_field: Option for the force field to use.
+Type: integer
+Options:
+1: Amber
+Example: 1
+
+clustering_algorithm: Option for the clustering algorithm.
+Type: integer
+Options:
+1: k-means
+2: HCA
+Example: 1

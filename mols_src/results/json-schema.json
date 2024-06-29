@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "output_directory": {
+      "type": "string",
+      "description": "The directory where the output files will be saved.",
+      "example": "/home/ubuntu/mols_src/results/"
+    },
+    "molecule_name": {
+      "type": "string",
+      "description": "The name or tag of the molecule.",
+      "example": "ALA"
+    },
+    "sequence": {
+      "type": "string",
+      "description": "The sequence of the molecule.",
+      "example": "AAAAA"
+    },
+    "cycles": {
+      "type": "integer",
+      "description": "The number of cycles to run.",
+      "example": 10
+    },
+    "backbone_option": {
+      "type": "integer",
+      "description": "Option for backbone configurations.",
+      "enum": [1, 2, 3],
+      "description": "1: Backbone, 2: Backbone + Side Chain, 3: Other",
+      "example": 2
+    },
+    "structure_option": {
+      "type": "integer",
+      "description": "Option for the structure generator.",
+      "enum": [1, 2, 3, 4],
+      "description": "1: Structure Generator, 2: Sample Structure, 3: Optimal Structures, 4: Clustering",
+      "example": 4
+    },
+    "force_field": {
+      "type": "integer",
+      "description": "Option for the force field to use.",
+      "enum": [1],
+      "description": "1: Amber",
+      "example": 1
+    },
+    "clustering_algorithm": {
+      "type": "integer",
+      "description": "Option for the clustering algorithm.",
+      "enum": [1, 2],
+      "description": "1: k-means, 2: HCA",
+      "example": 1
+    }
+  },
+  "required": ["output_directory", "molecule_name", "sequence", "cycles", "backbone_option", "structure_option", "force_field", "clustering_algorithm"]
+}
