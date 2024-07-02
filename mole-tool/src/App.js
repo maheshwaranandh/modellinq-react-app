@@ -18,7 +18,7 @@ function App() {
         // Fetch the server IP address
         axios.get('http://checkip.amazonaws.com/')
             .then(response => {
-                setServerUrl(`http://${response.data.trim()}:5000`);
+                setServerUrl(`http://${response.data.trim()}`);
             })
             .catch(error => {
                 console.error('Error fetching server IP', error);
@@ -37,7 +37,7 @@ function App() {
         e.preventDefault();
         setLoading(true);
         setDownloadLink('');
-        axios.post(`${serverUrl}/update-file`, formData)
+        axios.post(`${serverUrl}/api/update-file`, formData)
             .then(response => {
                 setDownloadLink(response.data.downloadUrl);
                 setLoading(false);
