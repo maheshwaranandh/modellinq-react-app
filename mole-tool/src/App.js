@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import { FaDownload } from 'react-icons/fa';
@@ -12,6 +12,18 @@ function App() {
     });
     const [loading, setLoading] = useState(false);
     const [downloadLink, setDownloadLink] = useState('');
+    const [serverUrl, setServerUrl] = useState('');
+
+    useEffect(() => {
+        // Fetch the server IP address
+        axios.get('http://checkip.amazonaws.com/')
+            .then(response => {
+                setServerUrl(`http://${response.data.trim()}:5000`);
+            })
+            .catch(error => {
+                console.error('Error fetching server IP', error);
+            });
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -25,7 +37,7 @@ function App() {
         e.preventDefault();
         setLoading(true);
         setDownloadLink('');
-        axios.post('http://localhost:5000/update-file', formData)
+        axios.post(`${serverUrl}/update-file`, formData)
             .then(response => {
                 setDownloadLink(response.data.downloadUrl);
                 setLoading(false);

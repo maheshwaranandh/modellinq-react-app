@@ -12,7 +12,7 @@ const PORT = 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use('/mols_src', express.static(path.join(__dirname, '../../mols_src')));
+app.use(express.static(path.join(__dirname, 'build')));  // Serve React app from build directory
 
 app.post('/update-file', (req, res) => {
     const data = req.body;
@@ -37,7 +37,7 @@ ${data.numberOfCycles}
             return res.status(500).send('Error writing to file');
         }
 
-        const execPath = path.join(__dirname, '../../mols_src/./existential');
+        const execPath = path.join(__dirname, '../../mols_src/./lmols');
         exec(execPath, (err, stdout, stderr) => {
             if (err) {
                 console.error('Error executing lmols', err);
@@ -55,7 +55,7 @@ ${data.numberOfCycles}
 
             output.on('close', () => {
                 console.log(`Zip file created: ${archive.pointer()} total bytes`);
-                res.json({ downloadUrl: `http://localhost:${PORT}/download/results.zip` });
+                res.json({ downloadUrl: `http://${req.hostname}:${PORT}/mols_src/results.zip` });
             });
 
             archive.on('error', (err) => {
@@ -70,7 +70,7 @@ ${data.numberOfCycles}
     });
 });
 
-app.get('/download/results.zip', (req, res) => {
+app.get('/mols_src/results.zip', (req, res) => {
     const filePath = path.join(__dirname, '../../mols_src/results.zip');
     res.download(filePath, 'results.zip', (err) => {
         if (err) {
